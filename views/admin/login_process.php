@@ -24,7 +24,7 @@
                 // Lưu thông tin người dùng vào session
                 $_SESSION['user'] = $users;
                 // Chuyển hướng đến trang index.php
-                header('Location: ./index.php?controller=article&action=list');
+                header('Location: ../admin_index.php');
                 exit;
             }  else {
                 // Hiển thị thông báo lỗi đăng nhập

@@ -7,7 +7,7 @@
     <title>Music for Life</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./assets/css/style_login.css">
+    <link rel="stylesheet" href="../assets/css/style_login.css">
 </head>
 <body>
     <header>
@@ -27,7 +27,7 @@
                     <a class="nav-link" aria-current="page" href="../../index.php">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active" href="./login.php">Đăng nhập</a>
+                    <a class="nav-link active" href="./views/login.php">Đăng nhập</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="login_process.php" method="POST">
+                        <form action="admin/login_process.php" method="POST">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id=""><i class="fas fa-user"></i></span>
                                 <input type="text" class="form-control " name="txtUser" placeholder="username" >
