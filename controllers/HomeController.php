@@ -10,3 +10,4 @@ class HomeController{
         include("views/home/index.php");
     }
 }
+?>
