@@ -24,7 +24,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
+                    <a class="nav-link" aria-current="page" href="../../index.php">Trang chủ</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link active" href="./login.php">Đăng nhập</a>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="admin/login_process.php" method="POST">
+                        <form action="login_process.php" method="POST">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id=""><i class="fas fa-user"></i></span>
                                 <input type="text" class="form-control " name="txtUser" placeholder="username" >
