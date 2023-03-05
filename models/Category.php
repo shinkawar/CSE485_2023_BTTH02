@@ -1,5 +1,5 @@
 <?php
-    require_once 'db.php';
+    require_once '../configs/DBConnection.php';
    
 ?>
 
@@ -63,13 +63,15 @@
                     </thead>
                     <tbody>
                         <?php
+                            require_once '../configs/DBConnection.php';
                             $sql = "SELECT * FROM theloai;";
                             $result = mysqli_query($conn, $sql);
                             $count =0;
                             $resultCheck = mysqli_num_rows($result);        
                             if($resultCheck > 0)
                             {
-                                while($row = mysqli_fetch_assoc($result)){
+                                while($row = mysqli_fetch_assoc($result))
+                                {
                                     $count ++;
                         ?>
                         <tr>
