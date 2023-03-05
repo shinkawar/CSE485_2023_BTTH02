@@ -1,14 +1,24 @@
 <?php
-//thien
-//$servername = "localhost";
-//thang
-$servername = "127.0.0.1:4306";
-$username = "root";
-$password = "";
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, 'btth01_cse485');
-mysqli_query($conn, "SET NAMES 'utf8'");
-    if(!$conn){
-        echo "Connect failed";
+class DBConnection{
+    private $conn=null;
+
+    public function __construct(){
+         // B1. Kết nối DB Server
+         try {
+            $this->conn = new PDO('mysql:host=localhost;dbname=btth01_cse485;port=3306', 'root','');
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     }
+
+    public function getConnection(){
+        return $this->conn;
+    }
+
+    public function query($sql){
+        return $this->conn->query($sql);
+    }
+
+
+}
