@@ -1,3 +1,7 @@
+<?php 
+    include '../../configs/DBConnection.php'; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,41 +52,58 @@
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
-                <h3 class="text-center text-uppercase fw-bold">Thêm mới bài viết</h3>
-                <form action="add_article_process.php" method="post">
+                <h3 class="text-center text-uppercase fw-bold">Sửa bài viết</h3>
+                <form action="edit_article_process.php" method="post">
+                    <?php
+                    // Bước 01: Kết nối tới DB Server
+                    $conn = mysqli_connect('localhost', 'root', '', 'btth01_cse485');
+                    $id = $_GET['id'];
+                    if (!$conn) {
+                        die('Kết nối tới Server lỗi');
+                    }
+                    // Bước 02: Thực hiện truy vấn
+                    $sql = "SELECT * FROM theloai WHERE ma_tloai=$id ";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result)
+
+                    ?>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblTieuDe">Tiêu đề</span>
-                        <input type="text" class="form-control" name="txtTieuDe" >
+                        <input type="text" class="form-control" name="txtTieuDe">
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblTenBaiHat">Tên bài hát</span>
-                        <input type="text" class="form-control" name="txtBaiHat" >
+                        <input type="text" class="form-control" name="txtBaiHat">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblTenTheLoai">Tên thể loại</span>
-                        <input type="text" class="form-control" name="txtTheLoai" >
+                        <span class="input-group-text" id="lblTenTheLoai">Mã thể loại</span>
+                        <input type="text" class="form-control" name="txtMaTheLoai">
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblTomTat">Tóm tắt</span>
-                        <input type="text" class="form-control" name="txtTomTat" >
+                        <input type="text" class="form-control" name="txtTomTat">
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblNoiDung">Nội dung</span>
-                        <input type="text" class="form-control" name="txtNoiDung" >
+                        <input type="text" class="form-control" name="txtNoiDung">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblTacGia">Tác giả</span>
-                        <input type="text" class="form-control" name="txtTacGia" >
+                        <span class="input-group-text" id="lblTacGia">Mã tác giả</span>
+                        <input type="text" class="form-control" name="txtTacGia">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblNgayViet">Ngày viết</span>
+                        <input type="text" class="form-control" name="txtNgayViet">
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblHinhAnh">Hình ảnh</span>
                         <form action="upload.php" method="post" enctype="multipart/form-data">
                         <input type="file" name="fileToUpload" id="fileToUpload">
-                        <input type="text" class="form-control" name="txtHinhAnh" >
+                        <input type="text" class="form-control" name="txtHinhAnh">
                     </div>
 
                     <div class="form-group  float-end ">
-                        <input type="submit" value="Thêm" class="btn btn-success">
+                        <input type="submit" value="Lưu" class="btn btn-success">
                         <a href="list_article.php" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
